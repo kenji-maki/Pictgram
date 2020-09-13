@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
 
     @user = User.new(name: params[:user][:name], email: params[:user][:email])
+    debugger
     if @user.save
       redirect_to root_path, success: '登録が完了しました'
     else

@@ -6,12 +6,9 @@ class User < ApplicationRecord
     
     validates :password, presence: true
     validates :password, length: { in: 8..32 }
-    validates :password, format: { with: /\A(?=.&#042;?[a-z])(?=.&#042;?\d)[a-z\d]+\z/i }
+    validates :password, format: { with: /\A(?=.*?[a-z])[a-z\d]{8,32}+\z/ }
     
-    validates :password_confirmation, presence: true
-    validates :password_confirmation, confirmation: true
-    
-    
+
     has_secure_password
 end
 
