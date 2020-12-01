@@ -18,6 +18,10 @@ class TopicsController < ApplicationController
     end
   end
 
+ def show
+ @topic = Topic.find_by(id:params[:id]) 
+ end
+
   private
   def topic_params
     params.require(:topic).permit(:image, :description)
